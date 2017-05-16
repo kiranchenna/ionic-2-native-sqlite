@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click) = "getAllContacts()">
+        <ion-icon name="sync"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <!--<button ion-button block (click) = "getAllContacts()" [disabled]="disableBtn">Get Contacts</button>-->
+
+  <ion-list >
+    <ion-item *ngFor="let contact of contacts" >
+      <ion-row>
+        <ion-col >
+          <h2>{{contact.name}}</h2>
+          <p>{{contact.number}}</p>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-only right clear color="danger" (click) = "deletePopup(contact)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+          <button ion-button icon-only right clear color="secondary" (click) = "editPopup(contact)">
+            <ion-icon name="create"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <ion-fab right bottom (click) = "newContactForm()">
+    <button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>
+
